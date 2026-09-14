@@ -39,10 +39,10 @@ services:
       - "net.ipv6.conf.all.disable_ipv6=1"
     tty: true
     volumes:
-      - "/mnt/plexlibrary/Downloads:/downloads"
-      - "/home/pi/docker/qbittorrent/config:/config"
-      - "/lib/modules:/lib/modules"
+      - D:\downloads:/downloads #optional
+      - D:\docker\qbittorrent\config:/config
+      - D:\docker\qbittorrent\lib\modules:/lib/modules
     working_dir: "/opt"
 secrets:
   webui_pass:
-    file: "/home/pi/docker/qbittorrent/config/webui_pass"
+    file: D:\docker\qbittorrent\config\webui_pass

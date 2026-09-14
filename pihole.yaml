@@ -24,13 +24,12 @@ services:
     # cap_add:
     #   - NET_ADMIN # Required if you are using Pi-hole as your DHCP server, else not needed
     restart: unless-stopped
+    labels:
+      caddy: pihole.kinexa.co.uk
+      caddy.reverse_proxy: "{{upstreams 8055}}"
+    networks:
+      - caddy    
 networks:
   caddy:
-    driver: bridge
-    name: caddy
+    external: true
 
-# ref: https://hub.docker.com/_/caddy
-# volumes:
-#   caddy_data:
-#     external: true  # May need to create volume with 'docker volume create caddy_data'
-#   caddy_config:

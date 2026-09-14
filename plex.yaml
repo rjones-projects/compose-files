@@ -13,3 +13,11 @@ services:
       - /home/pi/docker/downloads:/movies
       - /home/pi/docker/downloads:/tv 
     restart: unless-stopped
+    labels:
+      caddy: plex.kinexa.co.uk
+      caddy.reverse_proxy: "{{upstreams 9443}}"
+    networks:
+      - caddy
+networks:
+  caddy:
+    external: true    

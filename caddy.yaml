@@ -16,7 +16,8 @@ services:
 
 networks:
   caddy:
-    external: true
+    driver: bridge
+    name: caddy
 
 volumes:
   caddy_data: {}
