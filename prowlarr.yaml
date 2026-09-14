@@ -1,0 +1,23 @@
+---
+services:
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - D:\docker\prowlarr\data:/config
+    ports:
+      - 9696:9696
+    restart: unless-stopped
+    labels:
+      caddy: prowlarr.kinexa.co.uk
+      caddy.reverse_proxy: "{{upstreams 9443}}"
+    networks:
+      - caddy
+
+networks:
+  caddy:
+    external: true

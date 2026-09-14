@@ -1,0 +1,25 @@
+---
+services:
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - D:\docker\sonarr\data:/config
+      - D:\tvseries:/tv #optional
+      - D:\downloads:/downloads #optional
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+    labels:
+      caddy: sonarr.kinexa.co.uk
+      caddy.reverse_proxy: "{{upstreams 9443}}"
+    networks:
+      - caddy
+
+networks:
+  caddy:
+    external: true

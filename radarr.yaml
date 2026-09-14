@@ -1,0 +1,25 @@
+---
+services:
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - D:\docker\radarr\data:/config
+      - D:\movies:/movies #optional
+      - D:\downloads:/downloads #optional
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+    labels:
+      caddy: radarr.kinexa.co.uk
+      caddy.reverse_proxy: "{{upstreams 9443}}"
+    networks:
+      - caddy
+
+networks:
+  caddy:
+    external: true

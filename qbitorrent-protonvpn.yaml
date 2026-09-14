@@ -1,0 +1,48 @@
+services:
+  qbittorrent-wireguard:
+    secrets:
+      - "webui_pass"
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE      
+    container_name: "qbittorrent-wireguard"
+    entrypoint:
+      - "/bin/bash"
+      - "/start.sh"
+    environment:
+      - "PUID=1000"
+      - "PGID=1000"
+      - "TZ=Europe/London"
+      - "LAN_NETWORK=192.168.50.0/24"
+      - "QBT_LEGAL_NOTICE=confirm"
+      - "ENABLEPROTONVPNPORTFWD=1"
+      - "WEBUI_URL=http://192.168.50.50:8080"
+      - "WEBUI_USER=admin"
+      - "WEBUI_PASS=Interest-Usual-Describe-Arm-8"
+      # Optional Cloudflare Access variables
+      # - "CF_ACCESS_CLIENT_ID=<your-client-id>"
+      # - "CF_ACCESS_CLIENT_SECRET=<your-client-secret>"
+    image: "docker.io/tenseiken/qbittorrent-wireguard:latest"
+    ipc: "private"
+    network_mode: "bridge"
+    ports:
+      - "8999:8999/tcp"
+      - "8999:8999/udp"
+      - "8080:8080/tcp"
+    restart: "unless-stopped"
+    security_opt:
+      - "label=disable"
+    stdin_open: true
+    sysctls:
+      - "net.ipv4.conf.all.rp_filter=2"
+      - "net.ipv4.conf.all.src_valid_mark=1"
+      - "net.ipv6.conf.all.disable_ipv6=1"
+    tty: true
+    volumes:
+      - "/mnt/plexlibrary/Downloads:/downloads"
+      - "/home/pi/docker/qbittorrent/config:/config"
+      - "/lib/modules:/lib/modules"
+    working_dir: "/opt"
+secrets:
+  webui_pass:
+    file: "/home/pi/docker/qbittorrent/config/webui_pass"

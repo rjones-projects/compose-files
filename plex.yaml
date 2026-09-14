@@ -1,0 +1,15 @@
+services:
+  plex:
+    image: linuxserver/plex:arm64v8-latest 
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - VERSION=docker
+      - PLEX_CLAIM= #optional
+    volumes:
+      - /home/pi/docker/plex:/config
+      - /home/pi/docker/downloads:/movies
+      - /home/pi/docker/downloads:/tv 
+    restart: unless-stopped
