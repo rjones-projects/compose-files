@@ -1,6 +1,6 @@
 services:
   plex:
-    image: linuxserver/plex:arm64v8-latest 
+    image: linuxserver/plex:latest 
     container_name: plex
     network_mode: host
     environment:
@@ -9,13 +9,13 @@ services:
       - VERSION=docker
       - PLEX_CLAIM= #optional
     volumes:
-      - /home/pi/docker/plex:/config
-      - /home/pi/docker/downloads:/movies
-      - /home/pi/docker/downloads:/tv 
+      - D:\docker\plex:/config
+      - D:\downloads\movies:/movies
+      - D:\docker\downloads\tv:/tv 
     restart: unless-stopped
     labels:
       caddy: plex.kinexa.co.uk
-      caddy.reverse_proxy: "{{upstreams 9443}}"
+      caddy.reverse_proxy: "{{upstreams 32400}}"
     networks:
       - caddy
 networks:

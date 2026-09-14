@@ -16,7 +16,7 @@ services:
       - "LAN_NETWORK=192.168.50.0/24"
       - "QBT_LEGAL_NOTICE=confirm"
       - "ENABLEPROTONVPNPORTFWD=1"
-      - "WEBUI_URL=http://192.168.50.50:8080"
+      - "WEBUI_URL=http://192.168.50.206:8080"
       - "WEBUI_USER=admin"
       - "WEBUI_PASS=Interest-Usual-Describe-Arm-8"
       # Optional Cloudflare Access variables
