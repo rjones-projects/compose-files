@@ -14,7 +14,7 @@ services:
     restart: unless-stopped
     labels:
       caddy: overseerr.kinexa.co.uk
-      caddy.reverse_proxy: "{{upstreams 9443}}"
+      caddy.reverse_proxy: "{{upstreams 5055}}"
     networks:
       - caddy
 
