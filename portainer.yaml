@@ -14,9 +14,9 @@ services:
     # labels:
     #   caddy: portainer.kinexa.co.uk
     #   caddy.reverse_proxy: "{{upstreams 9000}}"    
-    networks:
-      - caddy
+#     networks:
+#       - caddy
 
-networks:
-  caddy:
-    external: true
+# networks:
+#   caddy:
+#     external: true
