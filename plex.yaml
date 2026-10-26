@@ -17,8 +17,8 @@ services:
       - 32469:32469
     volumes:
       - D:\docker\plex:/config
-      - D:\downloads\movies:/movies
-      - D:\docker\downloads\tv:/tv 
+      - D:\movies:/movies
+      - D:\tvseries:/tv 
     restart: unless-stopped
     labels:
       caddy: plex.kinexa.co.uk

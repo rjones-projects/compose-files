@@ -1,6 +1,6 @@
 services:
   caddy:
-    image: lucaslorentz/caddy-docker-proxy:ci-alpine
+    image: lucaslorentz/caddy-docker-proxy:2.13-alpine
     ports:
       - 80:80
       - 443:443/tcp
@@ -18,6 +18,3 @@ networks:
   caddy:
     driver: bridge
     name: caddy
-
-volumes:
-  caddy_data: {}

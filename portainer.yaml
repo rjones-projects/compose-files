@@ -9,9 +9,11 @@ services:
       - D:\docker\portainer\data:/data
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
-    labels:
-      caddy: portainer.kinexa.co.uk
-      caddy.reverse_proxy: "{{upstreams 9000}}"
+    #if you want to expose portainer uncomment these and add valid URL
+    #otherwise you can access portainer via http://localhost:9000
+    # labels:
+    #   caddy: portainer.kinexa.co.uk
+    #   caddy.reverse_proxy: "{{upstreams 9000}}"    
     networks:
       - caddy
 
