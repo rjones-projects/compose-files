@@ -1,0 +1,15 @@
+services:
+  flaresolverr:
+    # DockerHub mirror flaresolverr/flaresolverr:latest
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    environment:
+      - TZ=Europe/London
+    # no ports: Prowlarr reaches it at http://flaresolverr:8191 on the caddy network
+    restart: unless-stopped
+    networks:
+      - caddy
+
+networks:
+  caddy:
+    external: true

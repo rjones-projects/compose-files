@@ -14,11 +14,11 @@ services:
       - "8055:80/tcp"
     environment:
       TZ: 'Europe/London'
-      WEBPASSWORD: 'Pa55word'
+      WEBPASSWORD: ${PIHOLE_PASSWORD:?set PIHOLE_PASSWORD in .env}
     # Volumes store your data between container upgrades
     volumes:
-      - ' D:\docker\pihole\etc:/etc/pihole'
-      - ' D:\docker\pihole\dnsmasq:/etc/dnsmasq.d'
+      - 'D:\docker\pihole\etc:/etc/pihole'
+      - 'D:\docker\pihole\dnsmasq:/etc/dnsmasq.d'
     #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
 
     # cap_add:
@@ -27,8 +27,6 @@ services:
     labels:
       caddy: pihole.kinexa.co.uk
       caddy.reverse_proxy: "{{upstreams 8055}}"
-    networks:
-      - caddy    
 networks:
   caddy:
     external: true
