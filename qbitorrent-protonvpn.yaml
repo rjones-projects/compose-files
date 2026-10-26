@@ -1,7 +1,7 @@
 services:
   qbittorrent-wireguard:
     secrets:
-      - "webui_pass"
+      - "WEBUI_APIKEY"
     cap_add:
       - NET_ADMIN
       - SYS_MODULE      
@@ -17,7 +17,6 @@ services:
       - "QBT_LEGAL_NOTICE=confirm"
       - "ENABLEPROTONVPNPORTFWD=1"
       - "WEBUI_URL=http://192.168.50.206:8080"
-      - "WEBUI_USER=admin"
       # Optional Cloudflare Access variables
       # - "CF_ACCESS_CLIENT_ID=<your-client-id>"
       # - "CF_ACCESS_CLIENT_SECRET=<your-client-secret>"
@@ -43,5 +42,5 @@ services:
       - D:\docker\qbittorrent\lib\modules:/lib/modules
     working_dir: "/opt"
 secrets:
-  webui_pass:
-    file: D:\docker\qbittorrent\config\webui_pass
+  WEBUI_APIKEY:
+    file: D:\docker\qbittorrent\secrets\WEBUI_APIKEY
