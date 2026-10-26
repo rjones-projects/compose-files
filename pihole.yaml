@@ -26,7 +26,7 @@ services:
     restart: unless-stopped
     labels:
       caddy: pihole.kinexa.co.uk
-      caddy.reverse_proxy: "{{upstreams 8055}}"
+      caddy.reverse_proxy: "{{upstreams 80}}"
 networks:
   caddy:
     external: true
