@@ -1,0 +1,28 @@
+---
+services:
+  signal:
+    image: lscr.io/linuxserver/signal:latest
+    container_name: signal
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - D:\docker\signal:/config
+    ports:
+      - 3000:3000
+      - 3001:3001
+    shm_size: "1gb"
+    restart: unless-stopped
+    labels:
+      caddy: signal.kinexa.co.uk
+      caddy.reverse_proxy: "{{upstreams https 3001}}"
+      caddy.reverse_proxy.transport: http
+      caddy.reverse_proxy.transport.tls:
+      caddy.reverse_proxy.transport.tls_insecure_skip_verify:
+    networks:
+      - caddy
+
+networks:
+  caddy:
+    external: true      
