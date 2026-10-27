@@ -5,7 +5,7 @@ services:
       - MODE=normal # supported modes: json-rpc, native, normal
       - AUTO_RECEIVE_SCHEDULE=0 22 * * * # enable this parameter on demand
     ports:
-      - "8086:8080" # map docker port 8080 to host port 8080.
+      - "8086:8080" # map docker port 8080 to host port 8086.
     volumes:
       - D:\docker\signal-api:/home/.local/share/signal-cli # map "signal-cli-config" folder on host system into docker container. the folder contains the password and cryptographic keys when a new number is registered
 
