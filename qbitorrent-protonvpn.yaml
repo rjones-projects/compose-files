@@ -16,6 +16,10 @@ services:
       - "LAN_NETWORK=192.168.50.0/24"
       - "QBT_LEGAL_NOTICE=confirm"
       - "ENABLEPROTONVPNPORTFWD=1"
+      # one lost ping over the VPN restarted the container every few minutes
+      - "HEALTH_CHECK_AMOUNT=5"
+      # Proton drops a NAT-PMP port 60s after the last renew; the script renews once per interval
+      - "HEALTH_CHECK_INTERVAL=45"
       - "WEBUI_URL=http://192.168.50.206:8080"
       # Optional Cloudflare Access variables
       # - "CF_ACCESS_CLIENT_ID=<your-client-id>"
