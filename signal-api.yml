@@ -19,4 +19,4 @@ services:
 #  'http://localhost:8086/v1/register/<sender number>/verify/<verification code>'
 
 #Send a test message (replace <sender number> with your number and <recipient number> with the recipient's number(s))
- curl -X POST -H "Content-Type: application/json" -d '{"message": "test worked", "number": "<sender_number>", "recipients": ["<recipient_number>"]}' 'http://127.0.0.1:8086/v2/send'
+# curl -X POST -H "Content-Type: application/json" -d '{"message": "test worked", "number": "<sender_number>", "recipients": ["<recipient_number>"]}' 'http://127.0.0.1:8086/v2/send'
