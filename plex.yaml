@@ -1,12 +1,12 @@
 services:
   plex:
-    image: linuxserver/plex:latest 
+    image: linuxserver/plex:latest
     container_name: plex
     environment:
       - PUID=1000
       - PGID=1000
       - VERSION=docker
-      - PLEX_CLAIM= #optional
+      - PLEX_CLAIM= # optional
     ports:
       # Main port for Plex Web App
       - 32400:32400
@@ -16,18 +16,19 @@ services:
       # - 32413:32413/udp
       # - 32414:32414/udp
       # Optional ports for DLNA
-      # - 1900:1900/udp 
+      # - 1900:1900/udp
       # - 32469:32469
     volumes:
       - D:\docker\plex:/config
       - D:\movies:/movies
-      - D:\tvseries:/tv 
+      - D:\tvseries:/tv
     restart: unless-stopped
     labels:
       caddy: plex.kinexa.co.uk
       caddy.reverse_proxy: "{{upstreams 32400}}"
     networks:
       - caddy
+
 networks:
   caddy:
-    external: true    
+    external: true

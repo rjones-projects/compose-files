@@ -1,4 +1,3 @@
----
 services:
   signal:
     image: lscr.io/linuxserver/signal:latest
@@ -25,4 +24,4 @@ services:
 
 networks:
   caddy:
-    external: true      
+    external: true

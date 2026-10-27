@@ -4,7 +4,7 @@ services:
       - "WEBUI_APIKEY"
     cap_add:
       - NET_ADMIN
-      - SYS_MODULE      
+      - SYS_MODULE
     container_name: "qbittorrent-wireguard"
     entrypoint:
       - "/bin/bash"
@@ -41,10 +41,11 @@ services:
       - "net.ipv6.conf.all.disable_ipv6=1"
     tty: true
     volumes:
-      - D:\downloads:/downloads #optional
+      - D:\downloads:/downloads # optional
       - D:\docker\qbittorrent\config:/config
       - D:\docker\qbittorrent\lib\modules:/lib/modules
     working_dir: "/opt"
+
 secrets:
   WEBUI_APIKEY:
     file: D:\docker\qbittorrent\secrets\WEBUI_APIKEY

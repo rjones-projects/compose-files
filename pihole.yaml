@@ -1,6 +1,5 @@
-
 # More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
-#After deploying shell into the container and run pihole setpassword <password> to set the password for the web interface:
+# After deploying shell into the container and run pihole setpassword <password> to set the password for the web interface:
 
 services:
   pihole:
@@ -20,15 +19,14 @@ services:
     volumes:
       - 'D:\docker\pihole\etc:/etc/pihole'
       - 'D:\docker\pihole\dnsmasq:/etc/dnsmasq.d'
-    #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
-
+    # https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
     # cap_add:
     #   - NET_ADMIN # Required if you are using Pi-hole as your DHCP server, else not needed
     restart: unless-stopped
     labels:
       caddy: pihole.kinexa.co.uk
       caddy.reverse_proxy: "{{upstreams 80}}"
+
 networks:
   caddy:
     external: true
-
