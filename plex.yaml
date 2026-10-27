@@ -8,13 +8,16 @@ services:
       - VERSION=docker
       - PLEX_CLAIM= #optional
     ports:
+      # Main port for Plex Web App
       - 32400:32400
-      - 1900:1900/udp
-      - 32410:32410/udp
-      - 32412:32412/udp
-      - 32413:32413/udp
-      - 32414:32414/udp
-      - 32469:32469
+      # Optional ports for the plex g'day discovery service
+      # - 32410:32410/udp
+      # - 32412:32412/udp
+      # - 32413:32413/udp
+      # - 32414:32414/udp
+      # Optional ports for DLNA
+      # - 1900:1900/udp 
+      # - 32469:32469
     volumes:
       - D:\docker\plex:/config
       - D:\movies:/movies
