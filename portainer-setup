@@ -5,6 +5,10 @@ sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/do
 docker cp /usr/bin/busybox portainer:/
 docker exec -it portainer /busybox sh
 
+# Shared volumes: stacks include this copy, so re-run after changing volumes.yaml
+mkdir D:\docker\portainer\data\common
+copy volumes.yaml D:\docker\portainer\data\common\volumes.yaml
+
 # To update portainer (as it cannot update itself - just everything it controls)
 docker compose -f portainer.yaml pull
 docker-compose -f portainer.yaml up --force-recreate --build -d

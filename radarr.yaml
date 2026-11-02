@@ -1,3 +1,6 @@
+include:
+  - /data/common/volumes.yaml
+
 services:
   radarr:
     image: lscr.io/linuxserver/radarr:latest
@@ -7,9 +10,9 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - D:\docker\radarr\data:/config
-      - D:\movies:/movies # optional
-      - D:\downloads:/downloads # optional
+      - radarr_data:/config
+      - movies:/movies # optional
+      - downloads:/downloads # optional
     ports:
       - 7878:7878
     restart: unless-stopped

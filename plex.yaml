@@ -1,3 +1,6 @@
+include:
+  - /data/common/volumes.yaml
+
 services:
   plex:
     image: linuxserver/plex:latest
@@ -19,9 +22,9 @@ services:
       # - 1900:1900/udp
       # - 32469:32469
     volumes:
-      - D:\docker\plex:/config
-      - D:\movies:/movies
-      - D:\tvseries:/tv
+      - plex_config:/config
+      - movies:/movies
+      - tvseries:/tv
     restart: unless-stopped
     labels:
       caddy: plex.kinexa.co.uk

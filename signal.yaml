@@ -1,3 +1,6 @@
+include:
+  - /data/common/volumes.yaml
+
 services:
   signal:
     image: lscr.io/linuxserver/signal:latest
@@ -7,7 +10,7 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - D:\docker\signal:/config
+      - signal_config:/config
     ports:
       - 3000:3000
       - 3001:3001

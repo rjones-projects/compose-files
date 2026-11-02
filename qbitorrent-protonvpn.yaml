@@ -1,7 +1,8 @@
+include:
+  - /data/common/volumes.yaml
+
 services:
   qbittorrent-wireguard:
-    secrets:
-      - "WEBUI_APIKEY"
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
@@ -41,11 +42,7 @@ services:
       - "net.ipv6.conf.all.disable_ipv6=1"
     tty: true
     volumes:
-      - D:\downloads:/downloads # optional
-      - D:\docker\qbittorrent\config:/config
-      - D:\docker\qbittorrent\lib\modules:/lib/modules
+      - downloads:/downloads # optional
+      - qbittorrent_config:/config
+      - qbittorrent_modules:/lib/modules
     working_dir: "/opt"
-
-secrets:
-  WEBUI_APIKEY:
-    file: D:\docker\qbittorrent\secrets\WEBUI_APIKEY

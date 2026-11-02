@@ -1,0 +1,124 @@
+# All D:\ volumes and secrets for every stack. Portainer reads this from /data/common/volumes.yaml (see portainer-setup).
+# Docker keeps these options when a volume is created: after changing a device, stop its stacks and `docker volume rm` the volume.
+# device is Docker Desktop's path to the host folder, e.g. D:\downloads is /run/desktop/mnt/host/d/downloads. The folder must already exist.
+volumes:
+  downloads:
+    name: downloads
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /run/desktop/mnt/host/d/downloads
+  movies:
+    name: movies
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /run/desktop/mnt/host/d/movies
+  tvseries:
+    name: tvseries
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /run/desktop/mnt/host/d/tvseries
+  caddy_data:
+    name: caddy_data
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /run/desktop/mnt/host/d/docker/caddy/data
+  diun_data:
+    name: diun_data
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /run/desktop/mnt/host/d/docker/diun
+  pihole_etc:
+    name: pihole_etc
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /run/desktop/mnt/host/d/docker/pihole/etc
+  pihole_dnsmasq:
+    name: pihole_dnsmasq
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /run/desktop/mnt/host/d/docker/pihole/dnsmasq
+  plex_config:
+    name: plex_config
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /run/desktop/mnt/host/d/docker/plex
+  portainer_data:
+    name: portainer_data
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /run/desktop/mnt/host/d/docker/portainer/data
+  prowlarr_data:
+    name: prowlarr_data
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /run/desktop/mnt/host/d/docker/prowlarr/data
+  qbittorrent_config:
+    name: qbittorrent_config
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /run/desktop/mnt/host/d/docker/qbittorrent/config
+  qbittorrent_modules:
+    name: qbittorrent_modules
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /run/desktop/mnt/host/d/docker/qbittorrent/lib/modules
+  radarr_data:
+    name: radarr_data
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /run/desktop/mnt/host/d/docker/radarr/data
+  seerr_data:
+    name: seerr_data
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /run/desktop/mnt/host/d/docker/seerr/data
+  signal_config:
+    name: signal_config
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /run/desktop/mnt/host/d/docker/signal
+  signal_api_data:
+    name: signal_api_data
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /run/desktop/mnt/host/d/docker/signal-api
+  sonarr_data:
+    name: sonarr_data
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /run/desktop/mnt/host/d/docker/sonarr/data
+

@@ -1,3 +1,6 @@
+include:
+  - /data/common/volumes.yaml
+
 services:
   sonarr:
     image: lscr.io/linuxserver/sonarr:latest
@@ -7,9 +10,9 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - D:\docker\sonarr\data:/config
-      - D:\tvseries:/tv # optional
-      - D:\downloads:/downloads # optional
+      - sonarr_data:/config
+      - tvseries:/tv # optional
+      - downloads:/downloads # optional
     ports:
       - 8989:8989
     restart: unless-stopped

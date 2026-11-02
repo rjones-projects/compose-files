@@ -1,3 +1,7 @@
+# run from the repo on the host, so not the /data/common copy the Portainer stacks use
+include:
+  - volumes.yaml
+
 services:
   caddy:
     image: lucaslorentz/caddy-docker-proxy:2.13-alpine
@@ -11,7 +15,7 @@ services:
       - caddy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - D:\docker\caddy\data:/data
+      - caddy_data:/data
     restart: unless-stopped
 
 networks:

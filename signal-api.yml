@@ -1,3 +1,6 @@
+include:
+  - /data/common/volumes.yaml
+
 services:
   signal-cli-rest-api:
     image: bbernhard/signal-cli-rest-api:latest
@@ -7,7 +10,7 @@ services:
     ports:
       - "8086:8080" # map docker port 8080 to host port 8086.
     volumes:
-      - D:\docker\signal-api:/home/.local/share/signal-cli # map "signal-cli-config" folder on host system into docker container. the folder contains the password and cryptographic keys when a new number is registered
+      - signal_api_data:/home/.local/share/signal-cli # map "signal-cli-config" folder on host system into docker container. the folder contains the password and cryptographic keys when a new number is registered
 
 # register a new number (replace <sender number> with your number, e.g. +447380244476)
 # curl -X POST -H "Content-Type: application/json" \
