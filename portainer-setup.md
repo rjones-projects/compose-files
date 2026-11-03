@@ -6,8 +6,13 @@ docker cp /usr/bin/busybox portainer:/
 docker exec -it portainer /busybox sh
 
 # Shared volumes: stacks include this copy, so re-run after changing volumes.yaml
+mkdir ~/docker/portainer/data/common
+cp volumes.yaml ~/docker/portainer/data/common/volumes.yaml
+
+# Shared volumes - Windows - change drive letter as appropriate
 mkdir D:\docker\portainer\data\common
 copy volumes.yaml D:\docker\portainer\data\common\volumes.yaml
+
 
 # To update portainer (as it cannot update itself - just everything it controls)
 docker compose -f portainer.yaml pull

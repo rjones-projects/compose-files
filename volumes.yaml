@@ -1,6 +1,7 @@
-# All D:\ volumes and secrets for every stack. Portainer reads this from /data/common/volumes.yaml (see portainer-setup).
+# All D:\ volumes for every stack. Portainer reads this from /data/common/volumes.yaml (see portainer-setup).
 # Docker keeps these options when a volume is created: after changing a device, stop its stacks and `docker volume rm` the volume.
 # device is Docker Desktop's path to the host folder, e.g. D:\downloads is /run/desktop/mnt/host/d/downloads. The folder must already exist.
+# The linux lines assume ~/docker on a Linux host. Docker does not expand ~ here, so write the full path, e.g. /home/<user>/docker/downloads.
 volumes:
   downloads:
     name: downloads
@@ -9,6 +10,7 @@ volumes:
       type: none
       o: bind
       device: /run/desktop/mnt/host/d/downloads
+      # linux: device: ~/docker/downloads
   movies:
     name: movies
     driver: local
@@ -16,6 +18,7 @@ volumes:
       type: none
       o: bind
       device: /run/desktop/mnt/host/d/movies
+      # linux: device: ~/docker/movies
   tvseries:
     name: tvseries
     driver: local
@@ -23,6 +26,7 @@ volumes:
       type: none
       o: bind
       device: /run/desktop/mnt/host/d/tvseries
+      # linux: device: ~/docker/tvseries
   caddy_data:
     name: caddy_data
     driver: local
@@ -30,6 +34,7 @@ volumes:
       type: none
       o: bind
       device: /run/desktop/mnt/host/d/docker/caddy/data
+      # linux: device: ~/docker/caddy/data
   diun_data:
     name: diun_data
     driver: local
@@ -37,6 +42,7 @@ volumes:
       type: none
       o: bind
       device: /run/desktop/mnt/host/d/docker/diun
+      # linux: device: ~/docker/diun
   pihole_etc:
     name: pihole_etc
     driver: local
@@ -44,6 +50,7 @@ volumes:
       type: none
       o: bind
       device: /run/desktop/mnt/host/d/docker/pihole/etc
+      # linux: device: ~/docker/pihole/etc
   pihole_dnsmasq:
     name: pihole_dnsmasq
     driver: local
@@ -51,6 +58,7 @@ volumes:
       type: none
       o: bind
       device: /run/desktop/mnt/host/d/docker/pihole/dnsmasq
+      # linux: device: ~/docker/pihole/dnsmasq
   plex_config:
     name: plex_config
     driver: local
@@ -58,6 +66,7 @@ volumes:
       type: none
       o: bind
       device: /run/desktop/mnt/host/d/docker/plex
+      # linux: device: ~/docker/plex
   portainer_data:
     name: portainer_data
     driver: local
@@ -65,6 +74,7 @@ volumes:
       type: none
       o: bind
       device: /run/desktop/mnt/host/d/docker/portainer/data
+      # linux: device: ~/docker/portainer/data
   prowlarr_data:
     name: prowlarr_data
     driver: local
@@ -72,6 +82,7 @@ volumes:
       type: none
       o: bind
       device: /run/desktop/mnt/host/d/docker/prowlarr/data
+      # linux: device: ~/docker/prowlarr/data
   qbittorrent_config:
     name: qbittorrent_config
     driver: local
@@ -79,6 +90,7 @@ volumes:
       type: none
       o: bind
       device: /run/desktop/mnt/host/d/docker/qbittorrent/config
+      # linux: device: ~/docker/qbittorrent/config
   qbittorrent_modules:
     name: qbittorrent_modules
     driver: local
@@ -86,6 +98,7 @@ volumes:
       type: none
       o: bind
       device: /run/desktop/mnt/host/d/docker/qbittorrent/lib/modules
+      # linux: device: ~/docker/qbittorrent/lib/modules
   radarr_data:
     name: radarr_data
     driver: local
@@ -93,6 +106,7 @@ volumes:
       type: none
       o: bind
       device: /run/desktop/mnt/host/d/docker/radarr/data
+      # linux: device: ~/docker/radarr/data
   seerr_data:
     name: seerr_data
     driver: local
@@ -100,6 +114,7 @@ volumes:
       type: none
       o: bind
       device: /run/desktop/mnt/host/d/docker/seerr/data
+      # linux: device: ~/docker/seerr/data
   signal_config:
     name: signal_config
     driver: local
@@ -107,6 +122,7 @@ volumes:
       type: none
       o: bind
       device: /run/desktop/mnt/host/d/docker/signal
+      # linux: device: ~/docker/signal
   signal_api_data:
     name: signal_api_data
     driver: local
@@ -114,6 +130,7 @@ volumes:
       type: none
       o: bind
       device: /run/desktop/mnt/host/d/docker/signal-api
+      # linux: device: ~/docker/signal-api
   sonarr_data:
     name: sonarr_data
     driver: local
@@ -121,4 +138,5 @@ volumes:
       type: none
       o: bind
       device: /run/desktop/mnt/host/d/docker/sonarr/data
+      # linux: device: ~/docker/sonarr/data
 
