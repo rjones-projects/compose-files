@@ -1,0 +1,2 @@
+# bash fails on CRLF line endings, which a Windows checkout would otherwise give it
+*.sh text eol=lf

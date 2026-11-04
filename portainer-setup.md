@@ -5,13 +5,16 @@ sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/do
 docker cp /usr/bin/busybox portainer:/
 docker exec -it portainer /busybox sh
 
-# Shared volumes: stacks include this copy, so re-run after changing volumes.yaml
-mkdir ~/docker/portainer/data/common
-cp volumes.yaml ~/docker/portainer/data/common/volumes.yaml
+# The docker run above makes a plain portainer_data volume, which portainer.yaml then reuses instead of
+# binding ~/docker/portainer/data and without the common mount. Deploy with portainer.yaml instead.
 
-# Shared volumes - Windows - change drive letter as appropriate
-mkdir D:\docker\portainer\data\common
-copy volumes.yaml D:\docker\portainer\data\common\volumes.yaml
+# Shared volumes: stacks include this copy, so re-run after changing volumes.yaml
+mkdir -p /home/roland/docker/common
+cp volumes.yaml /home/roland/docker/common/volumes.yaml
+
+# Shared volumes - Windows - change drive letter as appropriate, and point the stacks' include: at this path
+mkdir D:\docker\common
+copy volumes.yaml D:\docker\common\volumes.yaml
 
 
 # To update portainer (as it cannot update itself - just everything it controls)

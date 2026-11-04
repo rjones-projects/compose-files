@@ -1,4 +1,4 @@
-# run from the repo on the host, so not the /data/common copy the Portainer stacks use
+# run from the repo on the host, so it uses the repo copy of volumes.yaml directly
 include:
   - volumes.yaml
 
@@ -11,6 +11,8 @@ services:
       - 9443:9443
     volumes:
       - portainer_data:/data
+      # same path as on the host, so stack includes resolve both inside Portainer and from the host CLI
+      - common:/home/roland/docker/common:ro
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
     # if you want to expose portainer uncomment these and add valid URL

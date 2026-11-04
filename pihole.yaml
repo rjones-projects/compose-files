@@ -2,7 +2,7 @@
 # After deploying shell into the container and run pihole setpassword <password> to set the password for the web interface:
 
 include:
-  - /data/common/volumes.yaml
+  - /home/roland/docker/common/volumes.yaml
 
 services:
   pihole:

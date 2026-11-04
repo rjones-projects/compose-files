@@ -1,142 +1,150 @@
-# All D:\ volumes for every stack. Portainer reads this from /data/common/volumes.yaml (see portainer-setup).
+# All host-folder volumes for every stack. Stacks include the copy at /home/roland/docker/common/volumes.yaml (see portainer-setup.md).
 # Docker keeps these options when a volume is created: after changing a device, stop its stacks and `docker volume rm` the volume.
-# device is Docker Desktop's path to the host folder, e.g. D:\downloads is /run/desktop/mnt/host/d/downloads. The folder must already exist.
-# The linux lines assume ~/docker on a Linux host. Docker does not expand ~ here, so write the full path, e.g. /home/<user>/docker/downloads.
+# device is the Linux host folder under /home/roland/docker. The folder must already exist.
+# The windows lines are Docker Desktop's path to the D:\ folder, e.g. D:\downloads is /run/desktop/mnt/host/d/downloads.
 volumes:
+  common:
+    name: common
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/roland/docker/common
+      # windows: device: /run/desktop/mnt/host/d/docker/common
   downloads:
     name: downloads
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /run/desktop/mnt/host/d/downloads
-      # linux: device: ~/docker/downloads
+      device: /home/roland/docker/downloads
+      # windows: device: /run/desktop/mnt/host/d/downloads
   movies:
     name: movies
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /run/desktop/mnt/host/d/movies
-      # linux: device: ~/docker/movies
+      device: /home/roland/docker/movies
+      # windows: device: /run/desktop/mnt/host/d/movies
   tvseries:
     name: tvseries
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /run/desktop/mnt/host/d/tvseries
-      # linux: device: ~/docker/tvseries
+      device: /home/roland/docker/tvseries
+      # windows: device: /run/desktop/mnt/host/d/tvseries
   caddy_data:
     name: caddy_data
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /run/desktop/mnt/host/d/docker/caddy/data
-      # linux: device: ~/docker/caddy/data
+      device: /home/roland/docker/caddy/data
+      # windows: device: /run/desktop/mnt/host/d/docker/caddy/data
   diun_data:
     name: diun_data
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /run/desktop/mnt/host/d/docker/diun
-      # linux: device: ~/docker/diun
+      device: /home/roland/docker/diun
+      # windows: device: /run/desktop/mnt/host/d/docker/diun
   pihole_etc:
     name: pihole_etc
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /run/desktop/mnt/host/d/docker/pihole/etc
-      # linux: device: ~/docker/pihole/etc
+      device: /home/roland/docker/pihole/etc
+      # windows: device: /run/desktop/mnt/host/d/docker/pihole/etc
   pihole_dnsmasq:
     name: pihole_dnsmasq
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /run/desktop/mnt/host/d/docker/pihole/dnsmasq
-      # linux: device: ~/docker/pihole/dnsmasq
+      device: /home/roland/docker/pihole/dnsmasq
+      # windows: device: /run/desktop/mnt/host/d/docker/pihole/dnsmasq
   plex_config:
     name: plex_config
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /run/desktop/mnt/host/d/docker/plex
-      # linux: device: ~/docker/plex
+      device: /home/roland/docker/plex
+      # windows: device: /run/desktop/mnt/host/d/docker/plex
   portainer_data:
     name: portainer_data
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /run/desktop/mnt/host/d/docker/portainer/data
-      # linux: device: ~/docker/portainer/data
+      device: /home/roland/docker/portainer/data
+      # windows: device: /run/desktop/mnt/host/d/docker/portainer/data
   prowlarr_data:
     name: prowlarr_data
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /run/desktop/mnt/host/d/docker/prowlarr/data
-      # linux: device: ~/docker/prowlarr/data
+      device: /home/roland/docker/prowlarr/data
+      # windows: device: /run/desktop/mnt/host/d/docker/prowlarr/data
   qbittorrent_config:
     name: qbittorrent_config
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /run/desktop/mnt/host/d/docker/qbittorrent/config
-      # linux: device: ~/docker/qbittorrent/config
+      device: /home/roland/docker/qbittorrent/config
+      # windows: device: /run/desktop/mnt/host/d/docker/qbittorrent/config
   qbittorrent_modules:
     name: qbittorrent_modules
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /run/desktop/mnt/host/d/docker/qbittorrent/lib/modules
-      # linux: device: ~/docker/qbittorrent/lib/modules
+      device: /home/roland/docker/qbittorrent/lib/modules
+      # windows: device: /run/desktop/mnt/host/d/docker/qbittorrent/lib/modules
   radarr_data:
     name: radarr_data
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /run/desktop/mnt/host/d/docker/radarr/data
-      # linux: device: ~/docker/radarr/data
+      device: /home/roland/docker/radarr/data
+      # windows: device: /run/desktop/mnt/host/d/docker/radarr/data
   seerr_data:
     name: seerr_data
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /run/desktop/mnt/host/d/docker/seerr/data
-      # linux: device: ~/docker/seerr/data
+      device: /home/roland/docker/seerr/data
+      # windows: device: /run/desktop/mnt/host/d/docker/seerr/data
   signal_config:
     name: signal_config
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /run/desktop/mnt/host/d/docker/signal
-      # linux: device: ~/docker/signal
+      device: /home/roland/docker/signal
+      # windows: device: /run/desktop/mnt/host/d/docker/signal
   signal_api_data:
     name: signal_api_data
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /run/desktop/mnt/host/d/docker/signal-api
-      # linux: device: ~/docker/signal-api
+      device: /home/roland/docker/signal-api
+      # windows: device: /run/desktop/mnt/host/d/docker/signal-api
   sonarr_data:
     name: sonarr_data
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /run/desktop/mnt/host/d/docker/sonarr/data
-      # linux: device: ~/docker/sonarr/data
+      device: /home/roland/docker/sonarr/data
+      # windows: device: /run/desktop/mnt/host/d/docker/sonarr/data
 
