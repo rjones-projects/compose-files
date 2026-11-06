@@ -51,6 +51,14 @@ volumes:
       o: bind
       device: /home/roland/docker/diun
       # windows: device: /run/desktop/mnt/host/d/docker/diun
+  magenta_data:
+    name: magenta_data
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/roland/docker/magenta/data
+      # windows: device: /run/desktop/mnt/host/d/docker/magenta/data
   pihole_etc:
     name: pihole_etc
     driver: local
