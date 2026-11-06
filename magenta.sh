@@ -1,5 +1,9 @@
+
 #!/usr/bin/env bash
 # Magenta and llama-swap can't both fit on the GPUs: "up" swaps llama-swap out, "down" swaps it back.
+#~/docker/magenta/stack/magenta.sh up     # stops llama-swap, starts Magenta
+#~/docker/magenta/stack/magenta.sh down   # stops Magenta, starts llama-swap again
+
 set -euo pipefail
 cd "$(dirname "$0")"
 case "${1:-}" in

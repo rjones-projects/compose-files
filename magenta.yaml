@@ -27,7 +27,11 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
-
+    labels:
+      caddy: magenta.kinexa.co.uk
+      caddy.reverse_proxy: "{{upstreams 7860}}"
+    networks:
+      - caddy
 secrets:
   hf_token:
     file: /home/roland/compose-files/hf-token.txt
